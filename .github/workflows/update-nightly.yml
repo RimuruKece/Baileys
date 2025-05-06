@@ -45,12 +45,9 @@ jobs:
 
       - name: Build NPM package
         run: |
-          yarn pack | tee output.txt
-          FILE=$(grep -oE '[^ ]+\.tgz$' output.txt || true)
-          if [ -z "$FILE" ]; then
-            echo "Tarball not found!" && exit 1
-          fi
-          mv "$FILE" baileys-nightly.tgz
+          yarn pack
+          mv rimurukece-baileys-v*.tgz baileys-nightly.tgz
+
 
 
       - name: Generate Changelog
