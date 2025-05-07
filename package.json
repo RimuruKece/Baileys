@@ -4,7 +4,13 @@
   "description": "A WebSockets library for interacting with WhatsApp Web",
   "keywords": [
     "whatsapp",
-    "automation"
+    "js-whatsapp",
+    "whatsapp-api",
+    "whatsapp-web",
+    "whatsapp-chat",
+    "whatsapp-group",
+    "automation",
+    "multi-device"
   ],
   "homepage": "https://github.com/RimuruKece/Baileys/",
   "repository": {
