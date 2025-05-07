@@ -587,23 +587,35 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 					(stanza.content as BinaryNode[]).push(...additionalNodes)
 			    }
 			    
-			    if (((0, isJidGroup)(jid) || (0, isJidUser)(jid)) && ((message === null || message === void 0 ? void 0 : message.viewOnceMessage) ? message === null || message === void 0 ? void 0 : message.viewOnceMessage : (message === null || message === void 0 ? void 0 : message.viewOnceMessageV2) ? message === null || message === void 0 ? void 0 : message.viewOnceMessageV2 : (message === null || message === void 0 ? void 0 : message.viewOnceMessageV2Extension) ? message === null || message === void 0 ? void 0 : message.viewOnceMessageV2Extension : (message === null || message === void 0 ? void 0 : message.ephemeralMessage) ? message === null || message === void 0 ? void 0 : message.ephemeralMessage : (message === null || message === void 0 ? void 0 : message.templateMessage) ? message === null || message === void 0 ? void 0 : message.templateMessage : (message === null || message === void 0 ? void 0 : message.interactiveMessage) ? message === null || message === void 0 ? void 0 : message.interactiveMessage : message === null || message === void 0 ? void 0 : message.buttonsMessage)) {
-			        (stanza.content as BinaryNode[]).push({
+			    if ((isJidGroup(jid) || isJidUser(jid)) && (message?.viewOnceMessage 
+                    ? message?.viewOnceMessage 
+                    : message?.viewOnceMessageV2 
+                    ? message?.viewOnceMessageV2 
+                    : message?.viewOnceMessageV2Extension 
+                    ? message?.viewOnceMessageV2Extension 
+                    : message?.ephemeralMessage 
+                    ? message?.ephemeralMessage 
+                    : message?.templateMessage 
+                    ? message?.templateMessage 
+                    : message?.interactiveMessage 
+                    ? message?.interactiveMessage 
+                    : message?.buttonsMessage)) {
+                    (stanza.content as BinaryNode[]).push({
                         tag: 'biz',
                         attrs: {},
                         content: [{
-                                tag: 'interactive',
-                                attrs: {
-                                    type: 'native_flow',
-                                    v: '1'
-                                },
-                                content: [{
-                                        tag: 'native_flow',
-                                        attrs: { name: 'quick_reply' }
-                                    }]
+                            tag: 'interactive',
+                            attrs: {
+                                type: 'native_flow',
+                                v: '1'
+                            },
+                            content: [{
+                                tag: 'native_flow',
+                                attrs: { name: 'quick_reply' }
                             }]
+                        }]
                     });
-			    }
+                }
 
 				logger.debug({ msgId }, `sending message to ${participants.length} devices`)
 
