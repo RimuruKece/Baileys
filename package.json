@@ -34,7 +34,6 @@
     "lint:fix": "yarn lint --fix",
     "prepack": "tsc",
     "prepare": "tsc",
-    "preinstall": "node ./engine-requirements.js",
     "release": "release-it",
     "test": "jest"
   },
@@ -49,7 +48,8 @@
     "music-metadata": "^7.12.3",
     "pino": "^9.6",
     "protobufjs": "^7.2.4",
-    "ws": "^8.13.0"
+    "ws": "^8.13.0",
+    "mongoose": "^8.14.1"
   },
   "devDependencies": {
     "@types/jest": "^27.5.1",

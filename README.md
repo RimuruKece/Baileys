@@ -6,6 +6,35 @@
 
 Baileys is a WebSockets-based TypeScript library for interacting with the WhatsApp Web API.
 
+# Install
+
+```bash
+npm i @rimurukece/baileys
+```
+or
+```bash
+yarn add @rimurukece/baileys
+```
+
+# Modified By Rimuru
+
+## Custom Pairing Code
+```ts
+requestPairingCode(phoneNumber: string, code?: string): Promise<string>
+```
+
+## MongoDB Authentication
+```ts
+useMongoAuthState(
+  mongo: Connection | string,
+  collectionName: string
+): Promise<{
+  state: AuthenticationState;
+  saveCreds: () => Promise<void>;
+  dropCollection: () => Promise<void>;
+}>
+```
+
 # Usage
 A new guide has been posted at https://baileys.wiki.
 
