@@ -18,7 +18,7 @@ yarn add @rimurukece/baileys
 
 # Modified By Rimuru
 
-## Custom Pairing Code
+## Custom Pairing Code [[bayumahadika/baileysx](https://github.com/bayumahadika/baileysx)]
 ```ts
 requestPairingCode(phoneNumber: string, code?: string): Promise<string>
 ```
@@ -34,6 +34,8 @@ useMongoAuthState(
   dropCollection: () => Promise<void>;
 }>
 ```
+
+### Add Interactive Message / Button Message [[bayumahadika/baileysx](https://github.com/bayumahadika/baileysx)]
 
 # Usage
 A new guide has been posted at https://baileys.wiki.
