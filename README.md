@@ -35,7 +35,7 @@ useMongoAuthState(
 }>
 ```
 
-### Add Interactive Message / Button Message [[bayumahadika/baileysx](https://github.com/bayumahadika/baileysx)]
+### Add Interactive / Button Message [[bayumahadika/baileysx](https://github.com/bayumahadika/baileysx)]
 
 # Usage
 A new guide has been posted at https://baileys.wiki.
