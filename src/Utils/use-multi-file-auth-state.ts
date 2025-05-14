@@ -43,18 +43,12 @@ export async function useMongoAuthState(
   interface AuthDoc extends Document {
     name: string;
     data: string;
-    expireAt?: Date;
   }
 
   const AuthSchema = new Schema<AuthDoc>(
     {
       name: { type: String, required: true, unique: true },
-      data: { type: String, required: true },
-      expireAt: {
-        type: Date,
-        default: undefined,
-        index: { expireAfterSeconds: 0 },
-      },
+      data: { type: String, required: true }
     },
     { collection: collectionName }
   );
@@ -73,10 +67,6 @@ export async function useMongoAuthState(
     const payload: Partial<AuthDoc> = {
       data: JSON.stringify(data, BufferJSON.replacer),
     };
-
-    if (name !== "creds") {
-      payload.expireAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
-    }
 
     await Auth.updateOne(
       { name },
